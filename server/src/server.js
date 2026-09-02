@@ -1,0 +1,11 @@
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+dotenv.config();
+const app=express();app.use(cors({origin:process.env.CLIENT_URL||true}));app.use(express.json());
+const data={patients:[{id:'PT-1001',name:'Aarav Sharma',age:32,department:'Cardiology',status:'Active'},{id:'PT-1002',name:'Priya Verma',age:27,department:'General Medicine',status:'Active'}],appointments:[]};
+app.get('/api/health',(_,res)=>res.json({status:'ok',service:'CareFlow HMS API'}));
+app.post('/api/auth/login',(req,res)=>{if(req.body.email==='admin@careflow.local'&&req.body.password==='admin123')return res.json({token:'demo-token',user:{name:'Hospital Admin',role:'admin'}});res.status(401).json({message:'Invalid credentials'});});
+app.get('/api/:collection',(req,res)=>res.json(data[req.params.collection]||[]));
+app.post('/api/:collection',(req,res)=>{data[req.params.collection]??=[];const item={id:req.body.id||Date.now().toString(),...req.body};data[req.params.collection].unshift(item);res.status(201).json(item)});
+app.listen(process.env.PORT||5000,()=>console.log('CareFlow API running'));
