@@ -1,0 +1,3 @@
+CREATE TABLE IF NOT EXISTS patients(id UUID PRIMARY KEY DEFAULT gen_random_uuid(),patient_code VARCHAR(30) UNIQUE NOT NULL,first_name VARCHAR(100) NOT NULL,last_name VARCHAR(100),phone VARCHAR(30),department VARCHAR(100),status VARCHAR(30) DEFAULT 'Active',created_at TIMESTAMPTZ DEFAULT now());
+CREATE TABLE IF NOT EXISTS appointments(id UUID PRIMARY KEY DEFAULT gen_random_uuid(),patient_id UUID REFERENCES patients(id) ON DELETE CASCADE,doctor_name VARCHAR(150) NOT NULL,appointment_at TIMESTAMPTZ NOT NULL,status VARCHAR(30) DEFAULT 'Pending');
+CREATE TABLE IF NOT EXISTS invoices(id UUID PRIMARY KEY DEFAULT gen_random_uuid(),patient_id UUID REFERENCES patients(id) ON DELETE CASCADE,amount NUMERIC(12,2) NOT NULL,status VARCHAR(30) DEFAULT 'Pending',paid_at TIMESTAMPTZ);
