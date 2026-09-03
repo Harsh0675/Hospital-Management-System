@@ -1,134 +1,96 @@
 # 🏥 CareFlow Hospital Management System
 
-> A modern hospital administration platform built with **React + Vite** and an **Express REST API**, designed to manage patients, doctors, appointments, pharmacy, laboratory services, rooms, billing, and medical records.
+> A full-stack hospital administration platform built with React, Express, and PostgreSQL.
 
-## 🧩 Architecture
+CareFlow models a real healthcare operations workflow across patients, doctors, appointments, pharmacy, laboratory services, rooms and beds, billing, and medical records.
+
+## Architecture
 
 ```text
-React + Vite Frontend
-        │
-        ▼
+React 18 + Vite
+      │
+      ▼
 Express REST API
-        │
-        ▼
-PostgreSQL Database
+      │
+      ▼
+PostgreSQL
 ```
 
-The project is organized as a separate frontend and backend application. The frontend uses React 18 with Vite and Lucide icons, while the server provides the Express API, authentication, and PostgreSQL connectivity. fileciteturn14file0L2-L2 fileciteturn15file0L2-L2
+Authentication uses JWT with bcryptjs for password hashing. The frontend and backend are maintained as separate applications.
 
-## 🩺 Hospital Modules
+## 🩺 Core Modules
 
-| Module | What it manages |
+| Module | Purpose |
 |---|---|
-| 📊 Dashboard | Hospital overview and key information |
-| 🧑‍⚕️ Patients | Registration, search, and patient information |
-| 👨‍⚕️ Doctors | Doctor records and management |
-| 📅 Appointments | Appointment scheduling and tracking |
-| 💊 Pharmacy | Medicine and inventory management |
-| 🧪 Laboratory | Tests and laboratory workflow |
-| 🛏️ Rooms & Beds | Room and bed availability |
-| 💳 Billing | Hospital billing information |
-| 📋 Medical Records | Patient medical history and records |
+| Dashboard | Operational overview |
+| Patients | Registration, search, and records |
+| Doctors | Doctor management |
+| Appointments | Scheduling and tracking |
+| Pharmacy | Medicine and inventory workflows |
+| Laboratory | Test and lab workflows |
+| Rooms & Beds | Availability management |
+| Billing | Billing workflows |
+| Medical Records | Patient history and records |
 
-## ⚡ Technology Stack
+## ⚙️ Technology
 
-### Frontend
-- **React 18**
-- **Vite 6**
-- **Lucide React**
-- Modern component-based UI
+**Frontend:** React 18, Vite 6, Lucide React  
+**Backend:** Node.js, Express, JWT, bcryptjs, CORS, dotenv  
+**Database:** PostgreSQL via `pg`
 
-### Backend
-- **Node.js**
-- **Express.js**
-- **JWT authentication**
-- **bcryptjs** for password hashing
-- **CORS**
-- **dotenv**
-
-### Database
-- **PostgreSQL** via `pg`
-
-The actual client and server package definitions confirm this React/Vite + Express/PostgreSQL architecture. fileciteturn14file0L2-L2 fileciteturn15file0L2-L2
-
-## 🚀 Run the Project
-
-### 1. Clone
+## 🚀 Local Development
 
 ```bash
 git clone https://github.com/Harsh0675/Hospital-Management-System.git
 cd Hospital-Management-System
-```
-
-### 2. Install dependencies
-
-```bash
 npm install
 npm run install:all
-```
-
-### 3. Start development mode
-
-```bash
 npm run dev
 ```
 
-The configured development servers are:
+Development services:
 
 ```text
 Frontend → http://localhost:5173
 API      → http://localhost:5000
 ```
 
-The root project provides `install:all`, `dev`, and `start` scripts for the client/server workflow. fileciteturn13file0L2-L2
-
-## 🔐 Demo Account
+## 🔐 Demo Login
 
 ```text
 Email:    admin@careflow.local
 Password: admin123
 ```
 
-This account is for demonstration/development purposes only.
-
-## 🌐 GitHub Pages
-
-The frontend is configured for GitHub Pages deployment through the repository's Pages workflow. Because GitHub Pages is static hosting, the Express API requires a separate Node.js-capable hosting service.
+For demonstration/development only. Do not use this credential in production.
 
 ## 🔒 Security & Privacy
 
-This project is intended for **development/demo use**.
+This repository is a software-development demonstration, **not a production medical-record system**.
 
-- Use synthetic patient data for demonstrations.
-- Never commit real medical records.
-- Never commit production passwords, API keys, or database credentials.
-- Configure secrets through environment variables.
+- Use synthetic data only.
+- Never commit real patient information.
+- Keep passwords, database credentials, and API keys in environment variables.
+- Apply appropriate healthcare privacy, authentication, authorization, auditing, encryption, and compliance controls before any real-world deployment.
 
-## 📁 Repository Structure
+## 📁 Structure
 
 ```text
 Hospital-Management-System/
 ├── client/                 # React + Vite frontend
-│   ├── src/
-│   └── package.json
-├── server/                 # Express + PostgreSQL backend
-│   ├── src/
-│   └── package.json
-├── .github/
-│   └── workflows/          # GitHub Pages workflow
-├── package.json             # Root development scripts
+├── server/                 # Express + PostgreSQL API
+├── .github/workflows/      # Automation / deployment workflows
+├── package.json            # Root scripts
 └── README.md
 ```
 
-## 🎯 Project Goal
+## 🎯 Engineering Value
 
-CareFlow demonstrates how a modern full-stack healthcare administration system can be structured using a **React frontend, REST API backend, authentication, and PostgreSQL database**.
+CareFlow demonstrates multi-module product design, frontend/backend separation, REST API integration, authentication, relational persistence, and healthcare-domain workflow modeling.
 
 ## 👨‍💻 Author
 
-**Harsh**
-
-GitHub: https://github.com/Harsh0675
+**Harsh** — [GitHub](https://github.com/Harsh0675)
 
 ## 📄 License
 
